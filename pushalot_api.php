@@ -3,7 +3,7 @@ class Pushalot
 {
 	const PUSHALOT_API_URL = 'https://pushalot.com/api/';
 	const PUSHALOT_API_SENDMESSAGE = 'sendmessage';
-	const USERAGENT = 'PushalotPHP/0.1';
+	const USERAGENT = 'PushalotPHP/0.2';
 
 	var $_curl = null;
 	var $_result_code;
@@ -15,13 +15,14 @@ class Pushalot
 	var $_token = null;
 
 	var $_params = array(
-		'AuthorizationToken'  => 32,
-		'Title'               => 250,
-		'Body'                => 32768 ,
-		'LinkTitle'           => 100 ,
-		'Link'                => 1000 ,
-		'IsImportant'         => 1,
-		'IsSilent'            => 1,
+		'AuthorizationToken' => 32,
+		'Title'              => 250,
+		'Body'               => 32768,
+		'LinkTitle'          => 100,
+		'Link'               => 1000,
+		'IsImportant'        => 1,
+		'IsSilent'           => 1,
+		'Image'              => 250,
 	);
 
 	function Pushalot($token=null, $proxy=null, $proxy_userpass=null)
