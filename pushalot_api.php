@@ -3,7 +3,7 @@ class Pushalot
 {
 	const PUSHALOT_API_URL = 'https://pushalot.com/api/';
 	const PUSHALOT_API_SENDMESSAGE = 'sendmessage';
-	const USERAGENT = 'PushalotPHP/0.2';
+	const USERAGENT = 'PushalotPHP/0.3';
 
 	var $_curl = null;
 	var $_result_code;
@@ -23,6 +23,7 @@ class Pushalot
 		'IsImportant'        => 1,
 		'IsSilent'           => 1,
 		'Image'              => 250,
+		'Source'             => 25,
 	);
 
 	function Pushalot($token=null, $proxy=null, $proxy_userpass=null)
@@ -69,9 +70,13 @@ class Pushalot
 		$code = (empty($code)) ? $this->_result_code : $code;
 		switch($code)
 		{
-			case 200: return 'Request Successful.';	break;
-			case 400: return 'Bad request.';	break;
+			case 200: return 'The message has been sent successfully.';	break;
+			case 400: return 'Input data validation failed.';	break;
+			case 405: return 'Method POST is required.';	break;
+			case 406: return 'Message throttle limit hit.';	break;
+			case 410: return 'The AuthorizationToken is no longer valid and no more messages should be ever sent again using that token.';	break;
 			case 500: return 'Internal server error.';	break;
+			case 503: return 'Our servers are currently overloaded with requests. Try again later.';	break;
 			case 1000:return 'cURL library missing functions or has no SSL support.';	break;
 			case 1001:return 'A parameter value exceeds the maximum length.';	break;
 			default:	return false;	break;
