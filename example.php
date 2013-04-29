@@ -8,8 +8,9 @@ $success = $pushalot->sendMessage(array(
 	'LinkTitle'=>'Pushalot.com',
 	'Link'=>'http://www.pushalot.com',
 	'IsImportant'=>true,
-	'IsSilent'=>false
+	'IsSilent'=>false,
 	'Image'=>'https://pushalot.com/Content/Images/logo.png',
+	'Source'=>'PHP script'
 ));
 echo $success?'The message was submitted.':$pushalot->getError();
 ?>
