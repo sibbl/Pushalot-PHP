@@ -56,7 +56,7 @@ class Pushalot
 				return false;
 			}
 			if(is_bool($v)) $v = $v ? 'True' : 'False';
-			$post_str .= $k . '=' . urlencode(utf8_encode($v)) . '&';
+			$post_str .= $k . '=' . urlencode($v) . '&';
 		}
 		$params = substr($post_str, 0, strlen($post_str)-1);
 
