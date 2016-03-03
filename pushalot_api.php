@@ -26,7 +26,7 @@ class Pushalot
 		'Source'             => 25,
 	);
 
-	function Pushalot($token=null, $proxy=null, $proxy_userpass=null)
+	function __construct ($token=null, $proxy=null, $proxy_userpass=null)
 	{
 		$curl_info = curl_version();
 		if(!function_exists('curl_exec') || empty($curl_info['ssl_version']))
